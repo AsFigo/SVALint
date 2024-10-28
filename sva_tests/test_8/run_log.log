@@ -1,0 +1,8 @@
+# vsim -c tb_property -do "run -all;exit" -l run_log.log 
+# Start time: 19:26:32 on Oct 28,2024
+# ** Error: (vsim-3170) Could not find 'tb_property'.
+#         Searched libraries:
+#             //wsl$/Ubuntu/home/manoj/SVALint/sva_tests/test_8/work
+# Error loading design
+# End time: 19:26:33 on Oct 28,2024, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0

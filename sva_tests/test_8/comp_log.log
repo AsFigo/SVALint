@@ -1,0 +1,20 @@
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+Start time: 19:26:25 on Oct 28,2024
+vlog -sv -mfcu test_8.sv test_8_tb.sv -l comp_log.log 
+-- Compiling module status_memory_module
+-- Compiling module memory_tb
+** Warning: test_8_tb.sv(19): (vlog-2186) SystemVerilog testbench feature
+(randomization, coverage or assertion) detected in the design.
+These features are only supported in Questasim.
+** Warning: test_8_tb.sv(19): (vlog-2186) SystemVerilog testbench feature
+(randomization, coverage or assertion) detected in the design.
+These features are only supported in Questasim.
+** Warning: test_8_tb.sv(24): (vlog-2186) SystemVerilog testbench feature
+(randomization, coverage or assertion) detected in the design.
+These features are only supported in Questasim.
+
+Top level modules:
+	status_memory_module
+	memory_tb
+End time: 19:26:27 on Oct 28,2024, Elapsed time: 0:00:02
+Errors: 0, Warnings: 3
