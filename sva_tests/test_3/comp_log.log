@@ -1,0 +1,19 @@
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+Start time: 18:54:16 on Oct 28,2024
+vlog -sv -mfcu test_3.sv test_3_tb.sv -l comp_log.log 
+-- Compiling module m_simple
+-- Compiling module tb_m
+** Warning: test_3_tb.sv(17): (vlog-2186) SystemVerilog testbench feature
+(randomization, coverage or assertion) detected in the design.
+These features are only supported in Questasim.
+** Warning: test_3_tb.sv(17): (vlog-2186) SystemVerilog testbench feature
+(randomization, coverage or assertion) detected in the design.
+These features are only supported in Questasim.
+** Warning: test_3_tb.sv(22): (vlog-2186) SystemVerilog testbench feature
+(randomization, coverage or assertion) detected in the design.
+These features are only supported in Questasim.
+
+Top level modules:
+	tb_m
+End time: 18:54:16 on Oct 28,2024, Elapsed time: 0:00:00
+Errors: 0, Warnings: 3
