@@ -1,4 +1,3 @@
-
 run: 
 	vlib work
 	vlog -sv -mfcu  test_1.sv test_1_tb.sv -l comp_log.log
