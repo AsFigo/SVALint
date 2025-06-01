@@ -14,6 +14,7 @@ import verible_verilog_syntax
 from af_lint_rule import AsFigoLintRule
 from asfigo_linter import AsFigoLinter
 from rules.af_asrt_no_label import MissingLabelChk
+from rules.af_perf_no_pass_ablk import PerfNoPABlk
 
 class SVALinter(AsFigoLinter):
     """Linter that applies multiple rules on SVA code"""
