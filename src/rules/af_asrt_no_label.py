@@ -10,11 +10,6 @@ import anytree
 
 class MissingLabelChk(AsFigoLintRule):
     """Enhance debug-ability of assertions by using labels """
-    def af_dbg_print_tree(self, data):
-        if not data.tree:
-            return
-        for prefix, _, node in anytree.RenderTree(data.tree):
-            print(f"\033[90m{prefix}\033[0m{node.to_formatted_string()}")
   
     def __init__(self, linter):
         self.linter = linter  # Store the linter instance
