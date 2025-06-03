@@ -33,6 +33,9 @@ cd svalint
 See: https://github.com/chipsalliance/verible
 
 3. pip install anytree
+4. pip install tomli
+   
+
 ## Usage
 ### Running the Linter from Command Line
 The linter can be run using the `svalint.py` script located in the `bin/` directory. This script checks SystemVerilog files against the defined style rules.
