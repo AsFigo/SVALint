@@ -21,6 +21,8 @@ from rules.af_no_fmatch_oper import NoFirstMatchOperInAsrt
 from rules.af_no_range_ant import NoRangeInAntAsrt
 from rules.af_perf_no_ub_range_ant import NoUBRangeInAntAsrt
 from rules.af_func_missing_fablk import FuncMissingFABLK
+from rules.af_missing_elbl_prop import MissingEndLblProp
+from rules.af_missing_elbl_seq import MissingEndLblSEQ
 
 class SVALinter(AsFigoLinter):
     """Linter that applies multiple rules on SVA code"""
