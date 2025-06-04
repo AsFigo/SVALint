@@ -9,3 +9,4 @@ all:
 	python3 ../bin/svalint.py -t test_29_f.sv
 	python3 ../bin/svalint.py -t test_30_f.sv
 	python3 ../bin/svalint.py -t test_38_f.sv
+	python3 ../bin/svalint.py -t test_40_f.sv
