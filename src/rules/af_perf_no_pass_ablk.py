@@ -20,7 +20,9 @@ class PerfNoPABlk(AsFigoLintRule):
             lvSvaCode = curNode.text
 
             lvAsrtPassAblkNode = curNode.iter_find_all({"tag": "kAssertPropertyBody"})
-            lvAsrtPassAblkNodeNxt = next(lvAsrtPassAblkNode)
+            lvAsrtPassAblkNodeNxt = next(lvAsrtPassAblkNode, None)
+            if lvAsrtPassAblkNodeNxt is None:
+                continue  
             lvNullNode = lvAsrtPassAblkNodeNxt.iter_find_all({"tag": "kNullStatement"})
             lvNullNodeList = list(lvNullNode)
 

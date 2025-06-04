@@ -16,6 +16,7 @@ from asfigo_linter import AsFigoLinter
 from rules.af_asrt_no_label import MissingLabelChk
 from rules.af_perf_no_pass_ablk import PerfNoPABlk
 from rules.af_no_timeliteral import NoExplTimeLiterals
+from rules.af_no_within_oper import NoWithinOperInAsrt
 
 class SVALinter(AsFigoLinter):
     """Linter that applies multiple rules on SVA code"""
