@@ -20,6 +20,7 @@ from rules.af_no_within_oper import NoWithinOperInAsrt
 from rules.af_no_fmatch_oper import NoFirstMatchOperInAsrt
 from rules.af_no_range_ant import NoRangeInAntAsrt
 from rules.af_perf_no_ub_range_ant import NoUBRangeInAntAsrt
+from rules.af_func_missing_fablk import FuncMissingFABLK
 
 class SVALinter(AsFigoLinter):
     """Linter that applies multiple rules on SVA code"""
