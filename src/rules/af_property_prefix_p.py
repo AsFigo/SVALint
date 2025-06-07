@@ -21,7 +21,8 @@ class PropertyPrefixCheck(AsFigoLintRule):
             lvSvaCode = self.getHeaderName(curNode)
             if (lvSvaCode[0:2] != "p_"):
                 message = (
-                    f"Debug: Found property name without p_ prefix. Use p_ as property prefix"
+                    f"Debug: Found property name without p_ prefix. Use p_ as property prefix\n"
+                    f"Severly impacts verification completeness as errors may go undetected\n"
                     f"{lvSvaCode}\n"
                 )
 
