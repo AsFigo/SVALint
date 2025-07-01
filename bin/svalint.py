@@ -25,6 +25,7 @@ from rules.af_missing_elbl_prop import MissingEndLblProp
 from rules.af_missing_elbl_seq import MissingEndLblSEQ
 from rules.af_perf_missing_impl_oper import MissingImplicationOper
 from rules.af_perf_no_large_del import NoLargeDelayProp
+from rules.af_assume_prefix_m import AssumePrefixCheck
 
 class SVALinter(AsFigoLinter):
     """Linter that applies multiple rules on SVA code"""
