@@ -23,7 +23,10 @@ from rules.af_perf_no_ub_range_ant import NoUBRangeInAntAsrt
 from rules.af_func_missing_fablk import FuncMissingFABLK
 from rules.af_missing_elbl_prop import MissingEndLblProp
 from rules.af_missing_elbl_seq import MissingEndLblSEQ
+from rules.af_perf_missing_impl_oper import MissingImplicationOper
+from rules.af_perf_no_large_del import NoLargeDelayProp
 from rules.af_cover_prefix_c import CoverPrefixCheck
+
 
 class SVALinter(AsFigoLinter):
     """Linter that applies multiple rules on SVA code"""
