@@ -13,16 +13,18 @@ import logging
 import verible_verilog_syntax
 from af_lint_rule import AsFigoLintRule
 from asfigo_linter import AsFigoLinter
-# from rules.af_asrt_no_label import MissingLabelChk
-# from rules.af_perf_no_pass_ablk import PerfNoPABlk
-# from rules.af_no_timeliteral import NoExplTimeLiterals
-# from rules.af_no_within_oper import NoWithinOperInAsrt
-# from rules.af_no_fmatch_oper import NoFirstMatchOperInAsrt
-# from rules.af_no_range_ant import NoRangeInAntAsrt
-# from rules.af_perf_no_ub_range_ant import NoUBRangeInAntAsrt
-# from rules.af_func_missing_fablk import FuncMissingFABLK
-# from rules.af_missing_elbl_prop import MissingEndLblProp
-# from rules.af_missing_elbl_seq import MissingEndLblSEQ
+from rules.af_asrt_no_label import MissingLabelChk
+from rules.af_perf_no_pass_ablk import PerfNoPABlk
+from rules.af_no_timeliteral import NoExplTimeLiterals
+from rules.af_no_within_oper import NoWithinOperInAsrt
+from rules.af_no_fmatch_oper import NoFirstMatchOperInAsrt
+from rules.af_no_range_ant import NoRangeInAntAsrt
+from rules.af_perf_no_ub_range_ant import NoUBRangeInAntAsrt
+from rules.af_func_missing_fablk import FuncMissingFABLK
+from rules.af_missing_elbl_prop import MissingEndLblProp
+from rules.af_missing_elbl_seq import MissingEndLblSEQ
+from rules.af_perf_missing_impl_oper import MissingImplicationOper
+from rules.af_perf_no_large_del import NoLargeDelayProp
 from rules.af_no_q_pop_front import NoQPopFront
 
 class SVALinter(AsFigoLinter):
