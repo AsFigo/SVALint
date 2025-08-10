@@ -9,17 +9,17 @@ from af_lint_rule import AsFigoLintRule
 import logging
 import anytree
 
-class PropertyPrefixCheck(AsFigoLintRule):
+class PropNaming(AsFigoLintRule):
     """Checks if property doesn't start with "p_" """
 
     def __init__(self, linter):
         self.linter = linter
-        self.ruleID = "PROP_START_WITH_P"
+        self.ruleID = "PROP_NAMING"
 
     def apply(self, filePath: str, data: AsFigoLintRule.VeribleSyntax.SyntaxData):
         for curNode in data.tree.iter_find_all({"tag": "kPropertyDeclaration"}):
             lvSvaCode = self.getHeaderName(curNode)
-            if (lvSvaCode[0:2] != "p_"):
+            if (not lvSvaCode.startswith("p_")):
                 message = (
                     f"Debug: Found property name without p_ prefix. Use p_ as property prefix\n"
                     f"Severly impacts verification completeness as errors may go undetected\n"

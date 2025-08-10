@@ -23,7 +23,7 @@ from rules.af_perf_no_ub_range_ant import NoUBRangeInAntAsrt
 from rules.af_func_missing_fablk import FuncMissingFABLK
 from rules.af_missing_elbl_prop import MissingEndLblProp
 from rules.af_missing_elbl_seq import MissingEndLblSEQ
-from rules.af_property_prefix_p import PropertyPrefixCheck
+from rules.af_prop_naming import PropNaming
 
 class SVALinter(AsFigoLinter):
     """Linter that applies multiple rules on SVA code"""
