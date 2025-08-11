@@ -23,6 +23,7 @@ from rules.af_perf_no_ub_range_ant import NoUBRangeInAntAsrt
 from rules.af_func_missing_fablk import FuncMissingFABLK
 from rules.af_missing_elbl_prop import MissingEndLblProp
 from rules.af_missing_elbl_seq import MissingEndLblSEQ
+from rules.af_prop_naming import PropNaming
 from rules.af_perf_missing_impl_oper import MissingImplicationOper
 from rules.af_perf_no_large_del import NoLargeDelayProp
 
