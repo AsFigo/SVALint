@@ -11,32 +11,33 @@ import anytree
 
 class NoUBRangeInAntAsrt(AsFigoLintRule):
     lvMsg = """
+    From book: https://payhip.com/b/7HvMk
 
-  Found complex consequent expression inside a property definition. 
-  It is highly recommended to use many simple propertie than a 
-  monolithic, complex one. This helps in debug as the failures can 
-  spot specific signal/expression failing. 
+by @hdlcohen
+
+Limiting Potential Matches: Restrict the number of possible matches to prevent state space
+explosion. This can be done by using fixed delays or bounded ranges instead of unbounded ones
+(e.g., ##[1:5] instead of ##[1:$] ).
+The general recommendation is to avoid using infinite or large ranges in SystemVerilog assertions by
+bounding them to reasonable values for the design. This recommendation is particularly true for formal
+verification. For example, instead of using ##[1:$], which represents a range from 1 to infinity, it’s
+better to use a finite range like ##[1:10], or to rethink the structure of the assertions. In practice, if the
+design allows for a response within a range of cycles and this flexibility is intended, using something like
+##[1:10] is acceptable and can be more representative of the actual behavior. However, if the design is
+expected to respond in a fixed number of cycles, or if you're facing performance issues with the formal
+tool, consider using a more deterministic delay
 
     """
 
     def __init__(self, linter):
         self.linter = linter
         # Store the linter instance
-        self.ruleID = "DBG_AVOID_COMPLEX_EXPR_IN_CONSEQ"
+        self.ruleID = "PERF_AVOID_$_RANGE_IN_ANT_A"
 
     def apply(self, filePath: str, data: AsFigoLintRule.VeribleSyntax.SyntaxData):
 
-        for curNode in data.tree.iter_find_all({"tag": "kPropertyDeclaration"}):
+        for curNode in data.tree.iter_find_all({"tag": "kAssertionItem"}):
             lvSvaCode = curNode.text
-            for lvOlapImplNode in curNode.iter_find_all({"tag": "|->"}):
-                lvConseqNode = lvOlapImplNode.siblings[1]
-                lvConseqExprANDG = lvConseqNode.iter_find_all({"tag": "&&"})
-                lvNumANDinConseq = len(list(lvConseqExprANDG))
-                if (lvNumANDinConseq > 2):
-                    message = f"{self.lvMsg}\n" f"{lvSvaCode}\n"
-                    self.linter.logViolation(self.ruleID, message)
-            '''
-            print (anytree.RenderTree(lvConseqNode))
             lvImplG = curNode.iter_find_all({"tag": "kPropertyImplicationList"})
             for curImplNode in curNode.iter_find_all({"tag": "kPropertyImplicationList"}):
                 lvImplAntNode = curImplNode.children[0]
@@ -48,4 +49,3 @@ class NoUBRangeInAntAsrt(AsFigoLintRule):
                         message = f"{self.lvMsg}\n" f"{lvSvaCode}\n"
 
                         self.linter.logViolation(self.ruleID, message)
-            '''
