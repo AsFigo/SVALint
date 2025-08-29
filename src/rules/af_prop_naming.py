@@ -26,7 +26,7 @@ class PropNaming(AsFigoLintRule):
                     f"{lvSvaCode}\n"
                 )
 
-                self.linter.logViolation(self.ruleID, message)
+                self.linter.logViolation(self.ruleID, message, "WARNING")
                 
     def getHeaderName(self, header):
         """Extracts the class name from a class declaration."""
