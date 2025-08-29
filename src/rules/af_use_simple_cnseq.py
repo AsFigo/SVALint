@@ -9,7 +9,7 @@ import logging
 import anytree
 
 
-class NoUBRangeInAntAsrt(AsFigoLintRule):
+class UseSimpleExprConseq(AsFigoLintRule):
     lvMsg = """
 
   Found complex consequent expression inside a property definition. 
@@ -22,7 +22,7 @@ class NoUBRangeInAntAsrt(AsFigoLintRule):
     def __init__(self, linter):
         self.linter = linter
         # Store the linter instance
-        self.ruleID = "DBG_AVOID_COMPLEX_EXPR_IN_CONSEQ"
+        self.ruleID = "DBG_USE_COMPLEX_EXPR_IN_CONSEQ"
 
     def apply(self, filePath: str, data: AsFigoLintRule.VeribleSyntax.SyntaxData):
 
@@ -35,17 +35,3 @@ class NoUBRangeInAntAsrt(AsFigoLintRule):
                 if (lvNumANDinConseq > 2):
                     message = f"{self.lvMsg}\n" f"{lvSvaCode}\n"
                     self.linter.logViolation(self.ruleID, message)
-            '''
-            print (anytree.RenderTree(lvConseqNode))
-            lvImplG = curNode.iter_find_all({"tag": "kPropertyImplicationList"})
-            for curImplNode in curNode.iter_find_all({"tag": "kPropertyImplicationList"}):
-                lvImplAntNode = curImplNode.children[0]
-                lvAntRangeG = lvImplAntNode.iter_find_all({"tag": "kCycleDelayRange"})
-                for curDelRangeNode in lvAntRangeG:
-                    lvAntUBRangeG = curDelRangeNode.iter_find_all({"tag": "$"})
-                    lvAntUBRangeList = list(lvAntUBRangeG)
-                    if len(lvAntUBRangeList) > 0:
-                        message = f"{self.lvMsg}\n" f"{lvSvaCode}\n"
-
-                        self.linter.logViolation(self.ruleID, message)
-            '''
