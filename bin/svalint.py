@@ -28,6 +28,9 @@ from rules.af_perf_missing_impl_oper import MissingImplicationOper
 from rules.af_perf_no_large_del import NoLargeDelayProp
 from rules.af_use_simple_cnseq import UseSimpleExprConseq
 from rules.af_no_dollar_time import UseRealTimeVsTime
+from rules.af_func_cov_nolap import FuncNOLAPInCoverProp 
+from rules.af_func_cov_olap import FuncOLAPInCoverProp 
+from rules.af_reuse_fa_one_liner import ReuseNoOneLinerFABLK 
 
 class SVALinter(AsFigoLinter):
     """Linter that applies multiple rules on SVA code"""
