@@ -31,6 +31,7 @@ from rules.af_no_dollar_time import UseRealTimeVsTime
 from rules.af_func_cov_nolap import FuncNOLAPInCoverProp 
 from rules.af_func_cov_olap import FuncOLAPInCoverProp 
 from rules.af_reuse_fa_one_liner import ReuseNoOneLinerFABLK 
+from rules.af_func_no_ub_in_cnseq import NoUBRangeInConseqAsrt 
 
 class SVALinter(AsFigoLinter):
     """Linter that applies multiple rules on SVA code"""
