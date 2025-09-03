@@ -26,6 +26,7 @@ from rules.af_missing_elbl_seq import MissingEndLblSEQ
 from rules.af_prop_naming import PropNaming
 from rules.af_perf_missing_impl_oper import MissingImplicationOper
 from rules.af_perf_no_large_del import NoLargeDelayProp
+from rules.af_cover_prefix_c import CoverPrefixCheck
 from rules.af_use_simple_cnseq import UseSimpleExprConseq
 from rules.af_no_dollar_time import UseRealTimeVsTime
 from rules.af_func_cov_nolap import FuncNOLAPInCoverProp 
