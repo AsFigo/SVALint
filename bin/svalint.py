@@ -32,6 +32,7 @@ from rules.af_func_cov_nolap import FuncNOLAPInCoverProp
 from rules.af_func_cov_olap import FuncOLAPInCoverProp 
 from rules.af_reuse_fa_one_liner import ReuseNoOneLinerFABLK 
 from rules.af_func_no_ub_in_cnseq import NoUBRangeInConseqAsrt 
+from rules.af_asrt_naming import AssertNaming
 
 class SVALinter(AsFigoLinter):
     """Linter that applies multiple rules on SVA code"""
