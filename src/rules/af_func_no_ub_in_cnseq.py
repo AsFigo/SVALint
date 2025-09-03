@@ -32,11 +32,6 @@ Consider using a more deterministic delay
         for curNode in data.tree.iter_find_all({"tag": "kAssertionItem"}):
             lvSvaCode = curNode.text
             for curImplNode in curNode.iter_find_all({"tag": "|->"}):
-                print (anytree.RenderTree(curImplNode))
-                print (curImplNode)
-                print (dir(curImplNode))
-                print (curImplNode.siblings)
-                print (type(curImplNode.siblings))
                 lvImplCnseqNode = curImplNode.siblings[1]
                 lvRangeG = lvImplCnseqNode.iter_find_all({"tag": "kCycleDelayRange"})
                 for curDelRangeNode in lvRangeG:
