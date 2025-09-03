@@ -19,4 +19,6 @@ all:
 	python3 ../bin/svalint.py -t test_28_f.sv
 	python3 ../bin/svalint.py -t test_2_f.sv
 	python3 ../bin/svalint.py -t test_2_p.sv
+	python3 ../bin/svalint.py -t test_1_f.sv
+	python3 ../bin/svalint.py -t test_1_p.sv
 
