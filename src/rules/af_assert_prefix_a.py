@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: AsFigo Technologies, UK
 # SPDX-FileCopyrightText: VerifWorks, India
 # SPDX-License-Identifier: MIT
-# Author: Himank Gangwal, June 07, 2025
+# Author: Himank Gangwal, Sep 02, 2025
 # ----------------------------------------------------
 
 from af_lint_rule import AsFigoLintRule
@@ -18,20 +18,19 @@ class AssertPrefixCheck(AsFigoLintRule):
 
     def apply(self, filePath: str, data: AsFigoLintRule.VeribleSyntax.SyntaxData):
         for curNode in data.tree.iter_find_all({"tag": "kAssertionItem"}):
-            lvSvaCode = self.getHeaderName(curNode)
-            if (lvSvaCode[0:2] != "a_"):
+            assert_name = self.getAssertPropertyName(curNode)
+            if assert_name and not assert_name.startswith("a_"):
                 message = (
                     f"Debug: Found assert name without a_ prefix. Use a_ as assert prefix\n"
-                    f"Severly impacts verification completeness as errors may go undetected\n"
-                    f"{lvSvaCode}\n"
+                    f"Severely impacts verification completeness as errors may go undetected\n"
+                    f"Assert property: {assert_name}\n"
                 )
-
                 self.linter.logViolation(self.ruleID, message)
         
-        
-                
-    def getHeaderName(self, header):
-        """Extracts the class name from a class declaration."""
-        for identifier in header.iter_find_all({"tag": "SymbolIdentifier"}):
+    def getAssertPropertyName(self, assert_node):
+        """Extracts the assert property name from an assert property statement."""
+        # Look for SymbolIdentifier nodes that represent the assert property name
+        for identifier in assert_node.iter_find_all({"tag": "SymbolIdentifier"}):
+            # The first SymbolIdentifier in an assert property is usually the name
             return identifier.text
         return "Unknown"
