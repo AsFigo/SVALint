@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: AsFigo Technologies, UK
 # SPDX-FileCopyrightText: VerifWorks, India
 # SPDX-License-Identifier: MIT
-# Author: Himank Gangwal, July 14, 2025
+# Author: Himank Gangwal, Sep 02, 2025
 # ----------------------------------------------------
 
 from af_lint_rule import AsFigoLintRule
@@ -19,14 +19,12 @@ class NoQPopBack(AsFigoLintRule):
     def apply(self, filePath: str, data: AsFigoLintRule.VeribleSyntax.SyntaxData):
         for curNode in data.tree.iter_find_all({"tag": ["kHierarchyExtension"]}):
             lvSvaCode = self.getHeaderName(curNode)
-            if(lvSvaCode == "pop_back"):
-                idflist = self.getSymbolIdentifierNames(curNode.parent)
-                if(idflist[0] == 'q' and  idflist[1] == "pop_back"):
-                    message = (
-                        f"Debug: Found q.pop_back. don't use it\n"
-                    )
-
-                    self.linter.logViolation(self.ruleID, message)
+            # check if lvSvaCode has "pop_back"
+            if("pop_back" in lvSvaCode):
+                message = (
+                    f"Debug: Found pop_back. don't use it\n"
+                )
+                self.linter.logViolation(self.ruleID, message)
                 
     def getHeaderName(self, header):
         for identifier in header.iter_find_all({"tag": "SymbolIdentifier"}):
