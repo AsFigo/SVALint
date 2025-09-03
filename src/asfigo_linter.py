@@ -45,27 +45,6 @@ class BaseLintLogger:
         self.errorList = []
         self.warningList = []
 
-    '''
-    def __init__(self, prefix, configFile="config.toml", logLevel=logging.INFO):
-        self.prefix = prefix
-        self.logger = logging.getLogger(f"{prefix}Logger")
-        self.logger.setLevel(logLevel)
-        handler = logging.StreamHandler()
-        handler.setLevel(logLevel)
-        formatter = logging.Formatter('%(message)s')
-        handler.setFormatter(formatter)
-        if self.logger.hasHandlers():
-            self.logger.handlers.clear()
-        self.logger.addHandler(handler)
-        self.rulesConfig = self.loadConfig(configFile)
-        self.infoCount = 0
-        self.warningCount = 0
-        self.errorCount = 0
-        self.errorList = []     # Store error rule IDs
-        self.warningList = []   # Store warning rule IDs
-    '''
-
-
     def loadConfig(self, configFile):
         try:
             with open(configFile, "rb") as file:
