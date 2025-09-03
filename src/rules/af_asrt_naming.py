@@ -9,23 +9,25 @@ from af_lint_rule import AsFigoLintRule
 import logging
 import anytree
 
-class AssertPrefixCheck(AsFigoLintRule):
-    """Checks if assert doesn't start with "a_" """
+class AssertNaming(AsFigoLintRule):
+    """Checks if assert follows a naming convention - start with "a_" """
 
     def __init__(self, linter):
         self.linter = linter
-        self.ruleID = "ASSERT_START_WITH_A"
+        self.ruleID = "ASSERT_NAMING"
 
     def apply(self, filePath: str, data: AsFigoLintRule.VeribleSyntax.SyntaxData):
         for curNode in data.tree.iter_find_all({"tag": "kAssertionItem"}):
             assert_name = self.getAssertPropertyName(curNode)
             if assert_name and not assert_name.startswith("a_"):
                 message = (
-                    f"Debug: Found assert name without a_ prefix. Use a_ as assert prefix\n"
-                    f"Severely impacts verification completeness as errors may go undetected\n"
-                    f"Assert property: {assert_name}\n"
+                    f"Debug: Found assert name without a_ prefix. "
+                    f"Use a_ as assert prefix. This helps users to "
+                    f"look for specific patterns in their log files. "
+                    f"Found an Assertion as:\n"
+                    f"{curNode.text}\n"
                 )
-                self.linter.logViolation(self.ruleID, message)
+                self.linter.logViolation(self.ruleID, message, "WARNING")
         
     def getAssertPropertyName(self, assert_node):
         """Extracts the assert property name from an assert property statement."""
