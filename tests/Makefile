@@ -12,4 +12,9 @@ all:
 	python3 ../bin/svalint.py -t test_40_f.sv
 	python3 ../bin/svalint.py -t test_42_f.sv
 	python3 ../bin/svalint.py -t test_12_f.sv
+	python3 ../bin/svalint.py -t test_19_f.sv
+	python3 ../bin/svalint.py -t test_55_f.sv
+	python3 ../bin/svalint.py -t test_10_f.sv
+	python3 ../bin/svalint.py -t test_22_f.sv
+	python3 ../bin/svalint.py -t test_28_f.sv
 
