@@ -23,7 +23,6 @@ from rules.af_perf_no_ub_range_ant import NoUBRangeInAntAsrt
 from rules.af_func_missing_fablk import FuncMissingFABLK
 from rules.af_missing_elbl_prop import MissingEndLblProp
 from rules.af_missing_elbl_seq import MissingEndLblSEQ
-from rules.af_no_exist import NoExists
 from rules.af_prop_naming import PropNaming
 from rules.af_perf_missing_impl_oper import MissingImplicationOper
 from rules.af_perf_no_large_del import NoLargeDelayProp
@@ -34,6 +33,7 @@ from rules.af_func_cov_olap import FuncOLAPInCoverProp
 from rules.af_reuse_fa_one_liner import ReuseNoOneLinerFABLK 
 from rules.af_func_no_ub_in_cnseq import NoUBRangeInConseqAsrt 
 from rules.af_asrt_naming import AssertNaming
+from rules.af_no_aa_exists_sva import AvoidAAExistsSVA
 
 class SVALinter(AsFigoLinter):
     """Linter that applies multiple rules on SVA code"""

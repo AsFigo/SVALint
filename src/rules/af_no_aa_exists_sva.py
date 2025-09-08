@@ -9,21 +9,22 @@ from af_lint_rule import AsFigoLintRule
 import logging
 import anytree
 
-class NoExists(AsFigoLintRule):
-    """Checks if .exist() is in the code """
+class AvoidAAExistsSVA(AsFigoLintRule):
+    """Checks if Assoc array method exist() is in the SVA code """
 
     def __init__(self, linter):
         self.linter = linter
-        self.ruleID = "NO_EXISTS"
+        self.ruleID = "NO_AA_EXISTS_SVA"
 
     def apply(self, filePath: str, data: AsFigoLintRule.VeribleSyntax.SyntaxData):
-        for curNode in data.tree.iter_find_all({"tag": ["kHierarchyExtension"]}):
-            # check if the node contains "exists"
-            if self.containsExists(curNode):
-                message = (
-                    f"Debug: Found .exists() in the code. Don't use it\n"
-                )
-                self.linter.logViolation(self.ruleID, message)
+        for curNode in data.tree.iter_find_all({"tag": ["kPropertyDeclaration"]}):
+            for hierNode in curNode.iter_find_all({"tag": ["kHierarchyExtension"]}):
+                # check if the node contains "exists"
+                if self.containsExists(hierNode):
+                    message = (
+                        f"Debug: Found .exists() in the code. Don't use it\n"
+                    )
+                    self.linter.logViolation(self.ruleID, message)
                 
     def containsExists(self, node):
         """Checks if a node or its children contain 'exists' usage."""
