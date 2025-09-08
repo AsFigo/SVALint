@@ -27,6 +27,13 @@ from rules.af_no_exist import NoExists
 from rules.af_prop_naming import PropNaming
 from rules.af_perf_missing_impl_oper import MissingImplicationOper
 from rules.af_perf_no_large_del import NoLargeDelayProp
+from rules.af_use_simple_cnseq import UseSimpleExprConseq
+from rules.af_no_dollar_time import UseRealTimeVsTime
+from rules.af_func_cov_nolap import FuncNOLAPInCoverProp 
+from rules.af_func_cov_olap import FuncOLAPInCoverProp 
+from rules.af_reuse_fa_one_liner import ReuseNoOneLinerFABLK 
+from rules.af_func_no_ub_in_cnseq import NoUBRangeInConseqAsrt 
+from rules.af_asrt_naming import AssertNaming
 
 class SVALinter(AsFigoLinter):
     """Linter that applies multiple rules on SVA code"""

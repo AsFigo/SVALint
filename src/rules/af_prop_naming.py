@@ -21,12 +21,14 @@ class PropNaming(AsFigoLintRule):
             lvSvaCode = self.getHeaderName(curNode)
             if (not lvSvaCode.startswith("p_")):
                 message = (
-                    f"Debug: Found property name without p_ prefix. Use p_ as property prefix\n"
-                    f"Severly impacts verification completeness as errors may go undetected\n"
-                    f"{lvSvaCode}\n"
+                    f"Debug: Found property name without p_ prefix. "
+                    f"Use p_ as property prefix. This helps users to "
+                    f"look for specific patterns in their log files. "
+                    f"Found a property as:\n"
+                    f"{curNode.text}"
                 )
 
-                self.linter.logViolation(self.ruleID, message)
+                self.linter.logViolation(self.ruleID, message, "WARNING")
                 
     def getHeaderName(self, header):
         """Extracts the class name from a class declaration."""
