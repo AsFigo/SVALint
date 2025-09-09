@@ -22,12 +22,20 @@ class UseSimpleExprConseq(AsFigoLintRule):
     def __init__(self, linter):
         self.linter = linter
         # Store the linter instance
-        self.ruleID = "DBG_USE_COMPLEX_EXPR_IN_CONSEQ"
+        self.ruleID = "DBG_USE_SIMPLE_EXPR_IN_CONSEQ"
 
     def apply(self, filePath: str, data: AsFigoLintRule.VeribleSyntax.SyntaxData):
 
         for curNode in data.tree.iter_find_all({"tag": "kPropertyDeclaration"}):
             lvSvaCode = curNode.text
+            lvNumOlapOper = len(list(curNode.iter_find_all({"tag": "|->"})))
+            lvNumNonOlapOper = len(list(curNode.iter_find_all({"tag": "|=>"})))
+
+            if (lvNumOlapOper + lvNumNonOlapOper  > 1):
+                message = f"{self.lvMsg}\n" f"{lvSvaCode}\n"
+                self.linter.logViolation(self.ruleID, message)
+                continue
+
             for lvOlapImplNode in curNode.iter_find_all({"tag": "|->"}):
                 lvConseqNode = lvOlapImplNode.siblings[1]
                 lvConseqExprANDG = lvConseqNode.iter_find_all({"tag": "&&"})
