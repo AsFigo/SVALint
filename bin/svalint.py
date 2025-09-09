@@ -34,6 +34,10 @@ from rules.af_reuse_fa_one_liner import ReuseNoOneLinerFABLK
 from rules.af_func_no_ub_in_cnseq import NoUBRangeInConseqAsrt 
 from rules.af_asrt_naming import AssertNaming
 from rules.af_no_aa_exists_sva import AvoidAAExistsSVA
+from rules.af_no_pop_back_sva import AvoidPopBkSVA
+from rules.af_no_pop_front_sva import AvoidPopFrSVA
+from rules.af_assume_naming import AssumeNaming
+from rules.af_cover_naming import CoverNaming
 
 class SVALinter(AsFigoLinter):
     """Linter that applies multiple rules on SVA code"""
