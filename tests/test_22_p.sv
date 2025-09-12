@@ -7,12 +7,16 @@ module m;
     @(posedge clk) sig_a |=> sig_b;
   endproperty : p_chk
 
-  // Bad as one-liner Fail action block is used in an assertion
-  a_chk : assert property (p_chk) else $error("fail");
+  
+  a_chk : assert property (p_chk) 
+  else begin
+	 $error("fail");
+       end
   a_good : assert property (p_chk) else
   begin : fail_ablk
     $error("fail");
   end : fail_ablk;
 
 endmodule
+
 
