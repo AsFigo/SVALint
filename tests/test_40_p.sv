@@ -12,6 +12,9 @@ module m;
     $error("Assertion failed: p_chk violated");
    end
   a_fail_actn_blk1 : assert property (p_chk);
+   else begin : fail_a_fail_actn_blk1
+     $error("Assertion failed: p_chk violated ");
+   end : fail_a_fail_actn_blk1
 
 endmodule : m
 
