@@ -4,8 +4,8 @@ module m;
   bit rstn;
   bit RVALID, RID, RREADY, RLAST;
   bit [31:0] RDATA;
-  bit [ 2:0] RRESEP;
-  property r_ch;
+  bit [ 2:0] RRESP;
+  property p_r_ch;
     @(posedge clk) disable iff (!rstn) $rose(
         RVALID
     ) |-> ($stable(
@@ -17,15 +17,18 @@ module m;
     ) && $stable(
         RLAST
     )) throughout RREADY [-> 1];
-  endproperty : r_ch
+  endproperty : p_r_ch
 
-  property r_ch1;
+  property p_r_ch1;
     @(posedge clk) disable iff (!rstn) $rose(
         RVALID
     ) |-> ($stable(RID));
-  endproperty : r_ch1
+  endproperty : p_r_ch1
 
-  a_r_ch : assert property (r_ch) 
-  else $error ("R_CH SVA failed");
+  a_r_ch : assert property (p_r_ch) 
+  else
+    begin 
+      $error ("R_CH SVA failed");
+    end
 
 endmodule : m
